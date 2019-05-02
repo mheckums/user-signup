@@ -1,16 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>User Sign-Up</title>
+{% extends "base.html" %}
 
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'styles/style.css') }}'">
-</head>
-<body>
-    
-    {% %}
+{% block content %}
 
-</body>
-</html>
+<h1>Signup</h1>
+
+<form method='post' action='/validate'>
+    <label for="username">User name:</label>
+    <input type="text" name="username" id="username" value={{username}}>
+    <p class="error">{{username_error}}</p>
+
+    <label for="password">Password:</label>
+    <input type="password" name="password" id="password">
+    <p class="error">{{password_error}}</p>
+
+    <label for="verifypassword">Verify Password:</label>
+    <input type="password" name="verifypassword" id="verifypassword">
+    <p class="error">{{verify_password_error}}</p>
+
+    <label for="email">Email(Optional):</label>
+    <input type="text" name="email" id="email" value={{email}}>
+    <p class="error">{{email_error}}</p>
+
+    <input type="submit" value="Submit">
+
+</form>
+
+{% endblock %}
